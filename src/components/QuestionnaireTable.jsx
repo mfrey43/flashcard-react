@@ -1,5 +1,4 @@
 import React from 'react';
-import {render} from 'react-dom';
 import QuestionnaireTableElement from './QuestionnaireTableElement';
 
 export default class QuestionnaireTable extends React.Component {

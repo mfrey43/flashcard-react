@@ -1,17 +1,33 @@
 import React from 'react';
-import {render} from 'react-dom';
 import QuestionnaireTable from './QuestionnaireTable';
+import QuestionnaireCreateDialog from './QuestionnaireCreateDialog';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 export default class QuestionnaireContainer extends React.Component {
 
+    handleChange() {
+        this.props.onChange(this.props.qs.length);
+    }
+
     render() {
-        let response = this.props.qs.length + ' Questionnaires found';
         return (
-            <div>
-                <h2>{response}</h2>
-                <QuestionnaireTable questionnaires={this.props.qs}/>
-            </div>
+            <Grid>
+                <Row>
+                    <div className="pull-right">
+                        <QuestionnaireCreateDialog/>
+                    </div>
+                </Row>
+                <Row>
+                    <Col md={12}>
+                        <QuestionnaireTable questionnaires={this.props.qs}/>
+                    </Col>
+                </Row>
+            </Grid>
         )
+    }
+
+    componentDidMount(){
+        this.handleChange();
     }
 }
 

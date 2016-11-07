@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import QuestionnaireShowDialog from './QuestionnaireShowDialog';
 
 export default class QuestionnaireTableElement extends React.Component {
 
@@ -9,6 +9,7 @@ export default class QuestionnaireTableElement extends React.Component {
                 <td>{this.props.questionnaire.id}</td>
                 <td>{this.props.questionnaire.title}</td>
                 <td>{this.props.questionnaire.description}</td>
+                <td><QuestionnaireShowDialog questionnaire={this.props.questionnaire}/></td>
             </tr>
         )
     }
